@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour {
 
     void Start () {
         controller = GetComponent<CharacterController>();
+        //ChangeBall();
+        //this.GetComponentInChildren<MeshRenderer>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -119,6 +121,17 @@ public class PlayerController : MonoBehaviour {
             case "Obstacle":
                 Crash();
                 break;
+        }
+    }
+    public void ChangeBall()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.name == "Ball")
+                child.GetComponent<MeshRenderer>().enabled = false;
+            if (child.name == "AtomBall")
+                foreach(Transform child2 in child.transform)
+                    child2.GetComponentInChildren<MeshRenderer>().enabled = true;
         }
     }
 }
