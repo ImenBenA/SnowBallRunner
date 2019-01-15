@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public Transform lookAt;
-    public Vector3 offset = new Vector3(0, 5.0f, -10.0f);
-    public Vector3 rotation = new Vector3(35, 0, 0);
+    public Vector3 offset = new Vector3(0, 4.0f, -2.0f);
+    public Vector3 rotation = new Vector3(28, 0, 0);
 
     public bool IsMoving { set; get; }
 	
