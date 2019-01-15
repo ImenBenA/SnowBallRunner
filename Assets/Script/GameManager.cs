@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     private float score, coinScore, modifierScore;
     private int lastScore;
     //death menu
+    public Animator GameCanvas, MenuAnim;
     public Animator deathMenuAnim;
     public Text deadscoreText, deadcointText;
     
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour {
             controller.StartRunning();
             FindObjectOfType<CameraController>().IsMoving = true;
             FindObjectOfType<GlacierSpawner>().IsScrolling = true;
+            //GameCanvas.SetTrigger("Show");
+            MenuAnim.SetTrigger("Hide");
         }
         if (isGameStarted && !IsDead)
         {
