@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour {
             isGameStarted = true;
             controller.StartRunning();
             FindObjectOfType<CameraController>().IsMoving = true;
+            FindObjectOfType<GlacierSpawner>().IsScrolling = true;
         }
         if (isGameStarted && !IsDead)
         {
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour {
     public void OnDeath()
     {
         IsDead = true;
+        FindObjectOfType<GlacierSpawner>().IsScrolling = false;
         deadscoreText.text = score.ToString("0");
         deadcointText.text = coinScore.ToString("0");
         deathMenuAnim.SetTrigger("Dead");
