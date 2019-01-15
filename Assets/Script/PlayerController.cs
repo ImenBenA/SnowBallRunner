@@ -112,6 +112,7 @@ public class PlayerController : MonoBehaviour {
     private void Crash()
     {
         isRunning = false;
+        explode();
         GameManager.Instance.OnDeath();
     }
     private void OnControllerColliderHit (ControllerColliderHit hit)
@@ -133,5 +134,30 @@ public class PlayerController : MonoBehaviour {
                 foreach(Transform child2 in child.transform)
                     child2.GetComponentInChildren<MeshRenderer>().enabled = true;
         }
+    }
+    public float cubeSize = 0.2f;
+    public int cubeInRow = 5; 
+    private void explode()
+    {
+        gameObject.SetActive(false);
+        for (int x  = 0; x < cubeInRow; x++)
+        {
+            for (int y = 0; y < cubeInRow; y++)
+            {
+                for (int z = 0; z < cubeInRow; z++)
+                {
+                    createPieces(x, y, z);
+                }
+            }
+        }
+    }
+    private void createPieces(int x , int y , int z)
+    {
+        GameObject piece;
+        piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        piece.transform.position = transform.position + new Vector3(cubeSize*x ,cubeSize * y,cubeSize * y );
+        piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
+        piece.AddComponent<Rigidbody>();
+        piece.GetComponent<Rigidbody>().mass = cubeSize;
     }
 }
