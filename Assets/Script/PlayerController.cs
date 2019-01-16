@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     //speed
     private float originalSpeed = 7.0f;
-    private float speed = 7.0f;
+    private float speed = 9.0f;
     private float speedIncreaseLastTick;
     private float speedIncreaseTime = 2.5f;
     private float speedIncreaseAmount = 0.1f;

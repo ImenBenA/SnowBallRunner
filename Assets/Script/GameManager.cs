@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
     private bool isGameStarted = false;
     private PlayerController controller;
     //UI fields 
-    public Text scoreText, coinText, modifierText;
+    public Text scoreText, coinText, modifierText, highScoreText;
     private float score, coinScore, modifierScore;
     private int lastScore;
     //death menu
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     void Awake()
     {
         Instance = this;
+        highScoreText.text = "HighScore : " + PlayerPrefs.GetFloat("HighScore").ToString("0");
         modifierScore = 1;
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         modifierText.text = "x" + modifierScore.ToString("0.0");
@@ -73,5 +74,10 @@ public class GameManager : MonoBehaviour {
         deadscoreText.text = score.ToString("0");
         deadcointText.text = coinScore.ToString("0");
         deathMenuAnim.SetTrigger("Dead");
+        if (score > PlayerPrefs.GetFloat("HighScore")) {
+              PlayerPrefs.SetFloat("HighScore", score);
+              highScoreText.text = "New HighScore : " + score.ToString("0");
+        } 
+          
     }
 }
