@@ -76,13 +76,13 @@ public class MobileInputs : MonoBehaviour {
             {
                 if (x < 0)
                 {
-                    print("left");
+                    //print("left");
                     swipeLeft = true;
                 }
                     
                 else
                 {
-                    print("right");
+                    //print("right");
                     swipeRight = true;
                 }
                    
@@ -91,13 +91,13 @@ public class MobileInputs : MonoBehaviour {
             {
                 if (y > 0)
                 {
-                    print("up");
+                    //print("up");
                     swipeUp = true;
                 }
                     
                 else
                 {
-                    print("down");
+                    //print("down");
                     swipeDown = true;
                 }
                     
