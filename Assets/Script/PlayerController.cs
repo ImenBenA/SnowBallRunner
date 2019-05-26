@@ -108,6 +108,10 @@ public class PlayerController : MonoBehaviour {
     {
         isRunning = true;
     }
+    public void StopRunning()
+    {
+        isRunning = false;
+    }
 
     private void Crash()
     {
